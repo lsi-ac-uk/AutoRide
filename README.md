@@ -5,7 +5,7 @@
 - [🚀 Features](#features)
 - [📁 Folder Structure](#folder-structure)
 - [🛠️ Getting Started](#getting-started)
-- [🔧 Usage](#🔧 Usage)
+- [🔧 Usage](#🔧-Usage)
 - [🤝 Contributing](#contributing)
 - [📜 License](#license)
 
