@@ -138,7 +138,7 @@ To get started with <YourCompany>, follow these steps:
    git clone https://github.com/<YourUsername>/<YourRepository>.git
 
 
-## Usage
+## 🔧 Usage
 ## Contributing
 ## License
 
