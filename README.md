@@ -5,3 +5,7 @@ Our roots trace back to when merchants, innkeepers, and elitists harnessed the p
 
 With a history spanning centuries, we are not simply a taxi company but a testament to the resilience of an idea that has adapted and thrived. As we step into the future, we carry this legacy forward, leveraging state-of-the-art technology to enhance the riding experience for our passengers. Our commitment to excellence, safety, and efficiency remains unwavering as we strive to seamlessly blend the timeless elegance of the past with the limitless possibilities of the future. Welcome to Sutton Auto Wheels, where tradition meets innovation on the road ahead.
 Now, we are proud to announce that we are the first company to use self-driving cars using artificial intelligence technology. In the following, you will get to know the essential parts of the company.
+
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQONHzYOF_zcqDKKBPZMNkr9dGVi-ymSeeFNniDWwpr3iUkxV3-uOK4VSrfkRfdn5Is5JIqdX1unJAf/pub?w=960&amp;h=720">
+
+![Example Image](https://drive.google.com/uc?id=1izpiG3HiBR0iPArqzp9hbeGSDKJmiVwn)
