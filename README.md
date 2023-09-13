@@ -38,7 +38,7 @@ Now, we are proud to announce that we are the first company to use self-driving 
 ## 🚀 Features
 
 - **User Authentication**: Secure authentication and authorization for riders and drivers.
-- **Real-Time Tracking**: Track the location of your ride in real-time using GPS.
+- **Real-Time Tracking**: Track the location of your ride in Real-time using GPS.
 - **Ride Booking**: Users can easily book a ride with just a few clicks.
 - **Driver Matching**: Efficient algorithm to match riders with nearby available drivers.
 - **Payment Integration**: Seamless integration with popular payment gateways for secure transactions.
@@ -52,9 +52,9 @@ Now, we are proud to announce that we are the first company to use self-driving 
 - **Data**: Contains database-related files.
   - **CSV**: CSV files for importing/exporting data.
   - **Schema**:  Database schema and structure files.
-  - **Scripts**: Scripts for database setup, migrations, and seed data.
+  - **Scripts**: Scripts for database setup.
   
-- **src/dotnet**: This folder contains the backend server built with the .NET framework.
+- **Src/dotnet**: This folder contains the backend server built with the .NET framework.
   It includes controllers, models, services, and other components necessary to run the server.
   - **API**:
   - **Domain**: Contain C# classes.
@@ -72,7 +72,7 @@ offers and the actors involved in using those functionalities.
 
 #### AutoRide Use Case Diagram
 The Use Case Diagram for the AutoRide Online Cab Sharing Platform illustrates the interactions 
-between three key actors: The customer, Self-Driving Car, and the Platform.
+between three key actors: The customer, the Self-Driving Car, and the Platform.
 
 * Customer: Represents the end-user of the platform who initiates ride requests. The customer
   interacts with the system through actions such as logging into the app, selecting their origin
@@ -139,7 +139,7 @@ To get started with <YourCompany>, follow these steps:
 
 
 ## Usage
-## Contributing]
-## License]
+## Contributing
+## License
 
 
