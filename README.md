@@ -114,7 +114,19 @@ payments, vehicles, and locations in a cab-sharing service.
 - **Location**: Contains information about a specific geographical location, including its latitude and longitude.
 - **Payment**: Manages payment details including amount, method, and status. Each payment is associated with a specific customer.
 - **Trip**: Represents a trip made by a customer using a vehicle. It includes start and end locations, trip status, and associated payment information.
-- **Vehicle**:
+- **Vehicle**: Contains information about the Autonomous car such as status, last service, and last location.
+- **VehicleBasicInformation**: Contains details about vehicles such as manufacturer, name, and type.
+
+- **Enums**:
+    - **Genders**: Represent the gender of a customer (Male, Female, Unknown).
+    - **PaymentMethods**: Indicates the method used for payment (Cash, Credit, Online)
+    - **PaymentStatus**: Describes the status of a payment (Successful, Unsuccessful, Cance, InProgress).
+    - **TripStatus**: Represent the status of a trip (Started, Done, Canceled).
+    - **VehicleStatus**: Indicates the status of a vehicle (UnderRepair, Vacant, Full, OutOfOrder)
+    - **VehicleTypes**: Specifies the type of vehicles (Sedan, SUV, CrossOver, Hatchback, Minivan, Van)
+ 
+This class diagram serves as a visual guide for understanding the relationships between the various components of the AutoCar application.
+For a detailed explanation of each class and their respective properties and methods, refer to the code files in the repository.
 
 ![Example Image](https://drive.google.com/uc?id=1izpiG3HiBR0iPArqzp9hbeGSDKJmiVwn)
 
@@ -126,5 +138,8 @@ To get started with <YourCompany>, follow these steps:
    git clone https://github.com/<YourUsername>/<YourRepository>.git
 
 
+## Usage
+## Contributing]
+## License]
 
 
