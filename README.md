@@ -1,7 +1,7 @@
 # AutoRide - Online Cab Sharing Platform
 
 ## Table of Contents
-- [🌟 Introduction](#🌟-introduction)
+- [🌟 Introduction](#-introduction)
 - [🚀 Features](#features)
 - [📁 Folder Structure](#folder-structure)
 - [🖼️ UML Diagrams](#uml-diagrams)
