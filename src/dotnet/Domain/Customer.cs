@@ -2,7 +2,8 @@ using System;
 
 namespace AutoCar;
 
-public class Customer{
+public class Customer
+{
     public Guid ID{get; set;}
     public string Name{get; set;}
     public string Family{get; set;}
