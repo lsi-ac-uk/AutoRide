@@ -1,5 +1,6 @@
 namespace AutoCar;
 
-public enum VehicleTypes{
+public enum VehicleTypes
+{
     Sedan, SUV, CrossOver, Hatchback, Minivan, Van
 }
