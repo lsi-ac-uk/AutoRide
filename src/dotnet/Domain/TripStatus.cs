@@ -1,5 +1,6 @@
 namespace AutoCar;
 
-public enum TripStatus{
+public enum TripStatus
+{
     Started, Done, canceled
 }
