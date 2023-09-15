@@ -1,5 +1,6 @@
 namespace AutoCar;
 
-public enum PaymentMethods{
+public enum PaymentMethods
+{
     Cash, Credit, Online
 }
