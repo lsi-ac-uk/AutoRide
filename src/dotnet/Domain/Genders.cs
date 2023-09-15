@@ -1,5 +1,6 @@
 namespace AutoCar;
 
-public enum Genders{
+public enum Genders
+{
     Male, Female, Unknown
 }
