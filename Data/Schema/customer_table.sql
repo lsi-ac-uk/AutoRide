@@ -1,0 +1,11 @@
+CREATE TABLE customer(
+	Id SERIAL PRIMARY KEY NOT NULL,
+	FirstName VARCHAR(30) NOT NULL,
+	LastName VARCHAR(30) NOT NULL,
+	DateOfBirth DATE, 
+	Email VARCHAR(50),
+	Phone VARCHAR(30),
+	Address VARCHAR(200),
+	ZipCode VARCHAR(30) NOT NULL,
+	JoinDate DATE
+);
