@@ -2,5 +2,5 @@ namespace AutoCar;
 
 public enum VehicleStatus
 {
-    UnderRepair, Vacant, Full
+    Busy, UnderRepair, Vacant
 }
