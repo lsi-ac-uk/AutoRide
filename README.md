@@ -129,7 +129,7 @@ payments, vehicles, and locations in a cab-sharing service.
 This class diagram serves as a visual guide for understanding the relationships between the various components of the AutoCar application.
 For a detailed explanation of each class and their respective properties and methods, refer to the code files in the repository.
 
-![Example Image](https://drive.google.com/uc?id=1izpiG3HiBR0iPArqzp9hbeGSDKJmiVwn)
+![Example Image](https://drive.google.com/uc?id=15IrtYHaekAALLRDTfBLDlCpb3ivBDvuD)
 
 
 To get started with <YourCompany>, follow these steps:
