@@ -5,7 +5,7 @@ CREATE TABLE customer(
 	DateOfBirth DATE, 
 	Email VARCHAR(50),
 	Phone VARCHAR(30),
-	Address VARCHAR(200),
+	Address VARCHAR(500),
 	ZipCode VARCHAR(30) NOT NULL,
 	JoinDate DATE
 );
