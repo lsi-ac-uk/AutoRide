@@ -1,6 +1,6 @@
 CREATE TABLE payment(
-	Id SERIAL PRIMARY KEY NOT NULL,
-	CustomerId INTEGER REFERENCES customer(Id) NOT NULL,
+	Id UUID PRIMARY KEY NOT NULL,
+	CustomerId UUID REFERENCES customer(Id) NOT NULL,
 	Amount FLOAT,
 	TransactionId VARCHAR(200),
 	TransactionTime DATE,

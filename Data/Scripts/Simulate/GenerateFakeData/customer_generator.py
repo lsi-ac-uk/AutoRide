@@ -29,10 +29,11 @@
 
 import datetime
 import random
+import uuid
 
 from faker import Faker
 
-from helper_functions import generate_location, generate_date_time
+from GenerateFakeData.helper_functions import generate_location, generate_date_time
 
 # Initialize Faker with localized countries. (To create more diverse names and surnames)
 fake = Faker(['en_GB', 'en_IN', 'it_IT', 'fr_FR', 'dk_DK'])
@@ -137,7 +138,7 @@ def calculate_age(born: datetime) -> int:
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 
-def generate_customer_info_dict(customer_id: int) -> dict:
+def generate_customer_info_dict(customer_id: uuid) -> dict:
     """
     This function generates a dictionary of fake customer information.
 
@@ -171,15 +172,15 @@ def generate_customer_info_dict(customer_id: int) -> dict:
         date_of_join = generate_date_time(start_date=random.choice(["-10y", "-3y", "-6y", "-5y", "-7y"]))
 
     return {
-        "id": customer_id,
-        "first_name": name,
-        "last_name": family,
-        "date_of_birth": birth_date,
-        "email": email,
-        "phone": phone,
-        "address": customer_address,
-        "postcode": post_code,
-        "join_date": date_of_join
+        "CustomerId": customer_id,
+        "FirstName": name,
+        "LastName": family,
+        "DateOfBirth": birth_date,
+        "Email": email,
+        "Phone": phone,
+        "Address": customer_address,
+        "Postcode": post_code,
+        "JoinDate": date_of_join
     }
 
 

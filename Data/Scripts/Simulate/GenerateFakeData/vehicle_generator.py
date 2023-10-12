@@ -14,8 +14,8 @@
 """
 from faker import Faker
 from faker_vehicle import VehicleProvider
-
-from helper_functions import generate_location, generate_date_time
+import uuid
+from GenerateFakeData.helper_functions import generate_location, generate_date_time
 
 fake_vehicle = Faker("en_UK")
 fake_vehicle.add_provider(VehicleProvider)
@@ -37,19 +37,17 @@ def generate_vehicle() -> tuple:
     # BMW
     model = fake_vehicle.vehicle_model()
     # SL
-    # cat = fake_vehicle.vehicle_category()
-    # Wagon
 
     return make, model
 
 
-def generate_vehicle_info_dict(vehicle_id, vehicle_status) -> dict:
+def generate_vehicle_info_dict(vehicle_id: uuid, vehicle_status: str) -> dict:
     """
     This function creates a dictionary of vehicle information
 
     Parameters
     -----------
-    vehicle_id: int
+    vehicle_id: uuid
         An id generated for each vehicle (PRIMARY KEY)
     vehicle_status: str
         Current state of vehicle.
@@ -69,15 +67,15 @@ def generate_vehicle_info_dict(vehicle_id, vehicle_status) -> dict:
     last_service = generate_date_time("-4y", "now")
 
     return {
-        "vehicle_id": vehicle_id,
-        "license_plate": fake_license,
-        "status": vehicle_status,
-        "last_service": last_service,
-        "latitude": last_seen_lat,
-        "longitude": last_seen_long,
-        "model": vehicle_model,
-        "make": vehicle_make,
-        "last_time": last_time_seen
+        "VehicleId": vehicle_id,
+        "LicensePlate": fake_license,
+        "Status": vehicle_status,
+        "LastService": last_service,
+        "Latitude": last_seen_lat,
+        "Longitude": last_seen_long,
+        "Model": vehicle_model,
+        "Make": vehicle_make,
+        "LastTime": last_time_seen
     }
 
 

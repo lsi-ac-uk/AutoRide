@@ -1,5 +1,5 @@
 CREATE TABLE Vehicle(
-	Id SERIAL PRIMARY KEY NOT NULL,
+	Id UUID PRIMARY KEY NOT NULL,
 	LicensePlate VARCHAR(20) NOT NULL,
 	VehicleStatus VehicleStatus NOT NULL,
 	LastService DATE,

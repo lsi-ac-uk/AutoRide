@@ -1,8 +1,8 @@
 CREATE TABLE trip(
-	Id SERIAL PRIMARY KEY NOT NULL,
-	CustomerId INTEGER REFERENCES customer(Id) NOT NULL,
-	VehicleId INTEGER REFERENCES vehicle(Id) NOT NULL,
-	PaymentId INTEGER REFERENCES payment (Id),
+	Id UUID PRIMARY KEY NOT NULL,
+	CustomerId UUID REFERENCES customer(Id) NOT NULL,
+	VehicleId UUID REFERENCES vehicle(Id) NOT NULL,
+	PaymentId UUID REFERENCES payment (Id),
 	StartLatitude INTEGER NOT NULL,
 	StartLongitude INTEGER NOT NULL,
  	EndLatitude INTEGER,

@@ -13,13 +13,15 @@
 """
 
 import datetime
+import random
+import uuid
 
 import numpy as np
 from faker import Faker
 
-from helper_functions import generate_location, generate_date_and_amount
+from GenerateFakeData.helper_functions import generate_location, generate_date_and_amount
 
-TRIP_STATUS = ['Start', 'End', 'Cancel']
+TRIP_STATUS = ['Started', "Completed", 'Canceled']
 
 fake_trip = Faker()
 
@@ -38,10 +40,10 @@ def generate_random_location() -> tuple:
     return lat, long
 
 
-def generate_trip_info_dict(trip_id: int,
-                            customer_id: int,
-                            vehicle_id: int,
-                            payment_id: int,
+def generate_trip_info_dict(trip_id: uuid,
+                            customer_id: uuid,
+                            vehicle_id: uuid,
+                            payment_id: uuid,
                             start_time: datetime,
                             status: str) -> dict:
     """
@@ -68,30 +70,30 @@ def generate_trip_info_dict(trip_id: int,
     start_lat_trip, start_long_trip = generate_random_location()
     end_lat_trip, end_long_trip = generate_random_location()
 
-    # trip_distance = distance((start_lat_trip, start_long_trip), (end_lat_trip, end_long_trip)).miles
-
     # Estimate the amount, distance and trip time.
     estimate_distance, start_trip_time, end_trip_time, estimate_amount = generate_date_and_amount(
         (start_lat_trip, start_long_trip), (end_lat_trip, end_long_trip), start_time)
 
+    request_trip_time = start_trip_time - datetime.timedelta(minutes=random.choice([1, 2, 3]))
+
     if status == TRIP_STATUS[0]:
         end_trip_time = np.NaN
 
-
     return {
-        "trip_id": trip_id,
-        "customer_id": customer_id,
-        "vehicle_id": vehicle_id,
-        "payment_id": payment_id,
-        "start_latitude_trip": start_lat_trip,
-        "start_longitude_trip": start_long_trip,
-        "end_latitude_trip": end_lat_trip,
-        "end_longitude_trip": end_long_trip,
-        "estimate_distance": estimate_distance,
-        "start_trip_time": start_time,
-        "end_trip_time": end_trip_time,
-        "amount": estimate_amount,
-        "status": status
+        "TripId": trip_id,
+        "CustomerId": customer_id,
+        "VehicleId": vehicle_id,
+        "PaymentId": payment_id,
+        "StartLatitudeTrip": start_lat_trip,
+        "StartLongitudeTrip": start_long_trip,
+        "EndLatitudeTrip": end_lat_trip,
+        "EndLongitudeTrip": end_long_trip,
+        "EstimateDistance": estimate_distance,
+        "RequestTripTime": request_trip_time,
+        "StartTripTime": start_time,
+        "EndTripTime": end_trip_time,
+        "Amount": estimate_amount,
+        "Status": status
     }
 
 
