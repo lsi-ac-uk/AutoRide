@@ -1,4 +1,0 @@
-pandas~=2.1.0
-Faker~=19.6.1
-geopy~=2.4.0
-numpy~=1.26.0
