@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 91951151e9e567eec9b308a91d5cf803bc346249
 # AutoRide - Script/Simulate
 
 ## Table of Contents
