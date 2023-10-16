@@ -33,6 +33,8 @@ This CSV file contains fake information about customers.
   - `ZipCode`: Zip code of the customer.
   - `JoinDate`: DateTime indicating when the customer joined.
 
+![Example Image](https://drive.google.com/uc?id=1bu1aF1U0WQkBQtNvFifOz0OhPDIaCRAF)
+
 ### vehicle_info.csv
 
 This CSV file contains fake information about vehicles.
@@ -47,6 +49,8 @@ This CSV file contains fake information about vehicles.
   - `Model`: Model of the vehicle.
   - `Make`: Make of the vehicle.
   - `LastTime`: DateTime indicating the last time we tracked the vehicle.
+
+![Example Image](https://drive.google.com/uc?id=1HKcASIZO85yZuCwTJ1JU4yGj0aQU-r4C)
 
 ### trip_info.csv
 
@@ -67,7 +71,7 @@ This CSV file contains information about trips.
     - `Amount`: The amount of travel expenses that the customer must pay.
     - `Status`: This field indicates whether the trip has started, finished, or canceled.
 
-### paymnet_info.csv
+### payment_info.csv
 
 This CSV file contains information about payments.
 
@@ -78,3 +82,5 @@ This CSV file contains information about payments.
  - `TransactionId`: Identifier for the transaction (created from the bank).
  - `TransactionTime`: DataTime indicates when the transaction occurred.
  - `Status`: Status of the payment.(in this case we just save successful payments.)
+
+![Example Image](https://drive.google.com/uc?id=1p7YwlIiLBn5xjXGytac-JGsT2B9Cree2)
