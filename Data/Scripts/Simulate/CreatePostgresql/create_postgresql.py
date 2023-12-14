@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import psycopg2
 from psycopg2.extensions import register_adapter, AsIs, Float
+from rich.console import Console, Theme
 
 from CreatePostgresql import table_query
 from CreatePostgresql.config import config
@@ -14,6 +15,9 @@ from CreatePostgresql.config import config
 # Convert numpy.NaN to a postgresql type.
 register_adapter(np.int64, AsIs)
 register_adapter(float, lambda f: AsIs('NULL') if np.isnan(f) else Float(f))
+
+custom_theme = Theme({"success": "green", "error": "red", "msg": "cyan"})
+console = Console(theme=custom_theme)
 
 
 def create_connection(config_name: str = "autoride") -> tuple:
@@ -32,7 +36,7 @@ def create_connection(config_name: str = "autoride") -> tuple:
     """
     try:
         db_params = config(section=config_name)
-        print("Connecting to PostgreSQL...")
+        console.print("Connecting to PostgreSQL...", style="success")
 
         connection = psycopg2.connect(**db_params)
         cursor = connection.cursor()
@@ -40,7 +44,7 @@ def create_connection(config_name: str = "autoride") -> tuple:
         return connection, cursor
 
     except(Exception, psycopg2.DatabaseError) as err:
-        print(err)
+        console.print(err, style="error")
         return None, None
 
 
@@ -58,11 +62,11 @@ def close_connection(connection: "database connection", cursor: "database cursor
 
     if cursor is not None:
         cursor.close()
-        print("Database cursor terminated!")
+        console.print("Database cursor terminated.", style="cyan")
 
     if connection is not None:
         connection.close()
-        print("Database connection terminated!")
+        console.print("Database connection terminated.", style="cyan")
 
 
 def create_db(config_name: str, db_name: str) -> None:
@@ -82,7 +86,7 @@ def create_db(config_name: str, db_name: str) -> None:
     None
     """
 
-    print("create db ...")
+    console.print("create db ...", style="success")
     connection, cursor = create_connection(config_name)
     if connection is not None and cursor is not None:
         try:
@@ -95,9 +99,9 @@ def create_db(config_name: str, db_name: str) -> None:
             if not exists:
                 # If the database does not exist, create it
                 cursor.execute("CREATE DATABASE {}".format(db_name))
-                print(f"Creating {db_name} database id Done!\n")
+                console.print(f"Creating {db_name} database id Done!\n", style="success")
         except(Exception, psycopg2.DatabaseError) as err:
-            print(err)
+            console.print(err, style="error")
         finally:
             close_connection(connection, cursor)
 
@@ -114,12 +118,12 @@ def check_pgsql_version(config_name: str) -> None:
     connection, cursor = create_connection(config_name)
     if connection is not None and cursor is not None:
         try:
-            print("Postgresql database version: ")
+            console.print("Postgresql database version: ", style="success")
             cursor.execute("SELECT version()")
             db_version = cursor.fetchone()
             print(db_version, "\n")
         except(Exception, psycopg2.DatabaseError) as err:
-            print(err)
+            console.print(err, style="error")
         finally:
             close_connection(connection, cursor)
 
@@ -144,9 +148,24 @@ def create_table(config_name: str, db_query: str) -> None:
             cursor.execute(db_query)
             connection.commit()
         except(Exception, psycopg2.DatabaseError) as err:
-            print(err)
+            console.print(err, style="error")
         finally:
             close_connection(connection, cursor)
+
+
+def database_exist(config_name: str = "postgresql"):
+    connection, cursor = create_connection(config_name)
+    list_database = []
+
+    if connection is not None and cursor is not None:
+        try:
+            cursor.execute("SELECT datname FROM pg_database;")
+            list_database = cursor.fetchall()
+        except(Exception, psycopg2.DatabaseError) as err:
+            console.print(err, style="error")
+        finally:
+            close_connection(connection, cursor)
+    return list_database
 
 
 def fill_the_table(config_name: str, csv_address: str, table_name: str, table_columns: str) -> None:
@@ -189,14 +208,14 @@ def fill_the_table(config_name: str, csv_address: str, table_name: str, table_co
 
 def create_tables(config_name: str, enums: dict, tables: dict) -> None:
     for key, value in enums.items():
-        print(f"Creating table {key}")
+        console.print(f"Creating table ... {key}", style="msg")
         create_table(config_name, value)
-        print(f"Empty table {key} is created!\n")
+        console.print(f"Empty table {key} is created!\n", style="success")
 
     for key, value in tables.items():
-        print(f"Creating table {key}")
+        console.print(f"Creating table {key}", style="msg")
         create_table(config_name, value)
-        print(f"Empty table {key} is created!\n")
+        console.print(f"Empty table {key} is created\n", style="success")
 
 
 def fill_tables(config_name: str):
@@ -206,12 +225,17 @@ def fill_tables(config_name: str):
                        "csv/" + key,
                        key.split("_")[0],
                        table_query.table_columns[key])
-        print(f"Table {key.split('_')[0]} is fill with fake data!")
+        console.print(f"Table {key.split('_')[0]} is fill with fake data.", style="success")
 
 
-def create_and_fill_postgresql():
+def create_empty_db() -> None:
     create_db("postgresql", "autoride")
 
+    create_tables("autoride", table_query.enums_query, table_query.tables_query)
+
+
+def create_and_fill_postgresql() -> None:
+    create_db("postgresql", "autoride")
 
     create_tables("autoride", table_query.enums_query, table_query.tables_query)
     fill_tables("autoride")
@@ -220,4 +244,3 @@ def create_and_fill_postgresql():
 if __name__ == "__main__":
     # Create autoride
     create_and_fill_postgresql()
-
