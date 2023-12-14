@@ -126,7 +126,7 @@ def customer_fill_data():
                 JoinDate=customer[8])
 
             customer_doc.save()
-        console.print("Trip document created successfully", style="success")
+        console.print("Customer document created successfully", style="success")
     except Exception as e:
         console.print(f"Error creating and saving Customer documents: {e}", style="error")
 
@@ -154,9 +154,9 @@ def vehicle_fill_data():
                 LastTime=vehicle[8])
 
             vehicle_doc.save()
-        console.print("Trip document created successfully", style="success")
+        console.print("Vehicle document created successfully", style="success")
     except Exception as e:
-        console.print(f"Error creating and saving Customer documents: {e}", style="error")
+        console.print(f"Error creating and saving Vehicle documents: {e}", style="error")
 
 
 def payment_fill_data():
@@ -180,9 +180,9 @@ def payment_fill_data():
                 Status=payment[5])
 
             payment_doc.save()
-        console.print("Trip document created successfully", style="success")
+        console.print("Payment document created successfully", style="success")
     except Exception as e:
-        print(f"Error creating and saving Customer documents: {e}")
+        print(f"Error creating and saving Payment documents: {e}")
 
 
 def trip_fill_data():

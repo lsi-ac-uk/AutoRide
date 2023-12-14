@@ -1,11 +1,3 @@
-# TODO Use UUID, trip and payment
-# TODO Add request time for trip
-# TODO Change the name of csv columns
-# TODO Edit transaction code style.
-# TODO Review the code and Docstrings
-# TODO Modify code for generate Postgresql
-# TODO complete the Mongodb Database generator
-# TODO check file and databases
 """
     This is the main script and responsible to generate fake information
     about customer, vehicle, trip, and payment.
@@ -46,7 +38,7 @@ from GenerateFakeData import payment_generator
 from GenerateFakeData import trip_generator
 from GenerateFakeData import vehicle_generator
 from GenerateFakeData.helper_functions import convert_string_datetime_to_datetime, choice_status_weight, \
-    create_trip_start_time, generate_transaction_time, generate_random_time_between, generate_date_and_amount, generate_random_time_between
+    create_trip_start_time, generate_transaction_time, generate_date_and_amount, generate_random_time_between
 
 
 def create_fake_vehicle_information(number_of_items: int) -> pd.DataFrame:
@@ -253,9 +245,17 @@ def create_fake_payment():
     return df_payment
 
 
-def start_fake_data_generation(number_of_customer: int = 100,
-                               number_of_vehicle: int = 50,
-                               number_of_trip: int = 200):
+def start_fake_data_generation(number_of_customer: int = 50,
+                               number_of_vehicle: int = 20,
+                               number_of_trip: int = 80):
+    """
+    This is the main function, and it runs other functions to generate fake data, and creates csv files.
+
+    Parameters
+    ----------
+
+    :return:
+    """
     print("Start generate fake information, please wait ...")
 
     if not os.path.exists("csv"):
