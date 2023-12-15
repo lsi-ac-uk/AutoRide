@@ -230,15 +230,12 @@ def trip_fill_data():
 
 
 def create_empty_doc():
-    connect('autoride')
-    empty_customer = Customer()
-
-    # Save the empty document to the database
     try:
-        empty_customer.save()
-        console.print("Empty customer document created and saved successfully.", style="success")
+        connect('autoride')
+        console.print("Connected to MongoDB successfully and autoride collection created.", style="success")
     except Exception as e:
-        console.print(f"Error saving empty customer document: {e}", style="error")
+        console.print(f"Error connecting to MongoDB: {e}", style="error")
+        # Handle the error appropriately (e.g., log the error, exit the program, etc.)
 
 
 def create_and_fill_mongo():
